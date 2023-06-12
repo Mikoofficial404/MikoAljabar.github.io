@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+<body>
+<li>Contoh Martiks Perkalian</li>
+<p>Di bawah Adalah Contoh Martiks Perkalian </p>
+<?xml version="1.0"?><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+    <mstyle displaystyle="true" scriptlevel="0">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>2</mn>
+              </mtd>
+              <mtd>
+                <mn>1</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>0</mn>
+              </mtd>
+              <mtd>
+                <mn>4</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+        <mo>:</mo>
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>3</mn>
+              </mtd>
+              <mtd>
+                <mn>1</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>2</mn>
+              </mtd>
+              <mtd>
+                <mn>0</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>8</mn>
+              </mtd>
+              <mtd>
+                <mn>2</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>8</mn>
+              </mtd>
+              <mtd />
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+      </mrow>
+    </mstyle>
+  </math>
+  <li>Contoh Kedua Martiks Perkalian</li>
+  <p>Di bawah Adalah Contoh Martiks Ordo 2 x 2 Hasil Dari Progam yang saya buat</p>
+  <?xml version="1.0"?><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+    <mstyle displaystyle="true" scriptlevel="0">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>5</mn>
+              </mtd>
+              <mtd>
+                <mn>3</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>6</mn>
+              </mtd>
+              <mtd>
+                <mn>4</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+        <mo>:</mo>
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>4</mn>
+              </mtd>
+              <mtd>
+                <mn>3</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>5</mn>
+              </mtd>
+              <mtd>
+                <mn>7</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow>
+          <mo>[</mo>
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mn>35</mn>
+              </mtd>
+              <mtd>
+                <mn>36</mn>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mn>44</mn>
+              </mtd>
+              <mtd>
+                <mn>46</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+          <mo>]</mo>
+        </mrow>
+      </mrow>
+    </mstyle>
+  </math>
+    <title>Perkalian Matriks</title>
+    <script>
+        function multiplyMatrices() {
+            var matrixA = [];
+            var matrixB = [];
+            var rowsA = parseInt(document.getElementById("rowsA").value);
+            var colsA = parseInt(document.getElementById("colsA").value);
+            var rowsB = parseInt(document.getElementById("rowsB").value);
+            var colsB = parseInt(document.getElementById("colsB").value);
+            
+            // Membaca matriks A dari input pengguna
+            for (var i = 0; i < rowsA; i++) {
+                matrixA[i] = [];
+                for (var j = 0; j < colsA; j++) {
+                    var elementId = "matrixA_" + i + "_" + j;
+                    matrixA[i][j] = parseInt(document.getElementById(elementId).value);
+                }
+            }
+            
+            // Membaca matriks B dari input pengguna
+            for (var i = 0; i < rowsB; i++) {
+                matrixB[i] = [];
+                for (var j = 0; j < colsB; j++) {
+                    var elementId = "matrixB_" + i + "_" + j;
+                    matrixB[i][j] = parseInt(document.getElementById(elementId).value);
+                }
+            }
+            
+            var result = [];
+            
+            // Periksa apakah jumlah kolom matriks A sama dengan jumlah baris matriks B
+            if (colsA !== rowsB) {
+                alert("Jumlah kolom matriks A harus sama dengan jumlah baris matriks B.");
+                return;
+            }
+            
+            // Perkalian matriks
+            for (var i = 0; i < rowsA; i++) {
+                result[i] = [];
+                for (var j = 0; j < colsB; j++) {
+                    var sum = 0;
+                    for (var k = 0; k < colsA; k++) {
+                        sum += matrixA[i][k] * matrixB[k][j];
+                    }
+                    result[i][j] = sum;
+                }
+            }
+            
+            // Menampilkan hasil perkalian
+            var output = document.getElementById("output");
+            output.innerHTML = "Hasil perkalian matriks: <br>";
+            for (var i = 0; i < rowsA; i++) {
+                output.innerHTML += result[i].join(" ") + "<br>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Perkalian Matriks</h1>
+    
+    <h3>Matriks A</h3>
+    <p>Contoh ordo 2 x 2 Inputkan Baris Martiks Dan Kolom 2</p>
+    <p>Contoh ordo 3 x 3 Inputkan Baris Martiks Dan Kolom 3</p>
+    <label for="rowsA">Masukan Jumlah baris Martiks:</label>
+    <input type="number" id="rowsA" name="rowsA" min="1" value="1">
+    <br>
+    <label for="colsA"> Masukan Jumlah kolom Martiks:</label>
+    <input type="number" id="colsA" name="colsA" min="1" value="1">
+    <br>
+    <div id="matrixA">
+        <h4>Masukan Angka matriks A:</h4>
+    </div>
+    
+    <h3>Matriks B</h3>
+    <label for="rowsB">Masukan Jumlah baris Martiks:</label>
+    <input type="number" id="rowsB" name="rowsB" min="1" value="1">
+    <br>
+    <label for="colsB">Masukan Jumlah kolom Martiks:</label>
+    <input type="number" id="colsB" name="colsB" min="1" value="1">
+    <br>
+    <div id="matrixB">
+        <h4>Masukan Angka matriks B:</h4>
+    </div>
+    
+    <button onclick="multiplyMatrices()">Hitung</button>
+    <div id="output"></div>
+    
+    <script>
+        // Menambahkan input elemen matriks A sesuai dengan jumlah baris dan kolom yang dipilih
+        document.getElementById("rowsA").addEventListener("change", addMatrixAInputs);
+        document.getElementById("colsA").addEventListener("change", addMatrixAInputs);
+        
+        function addMatrixAInputs() {
+            var rowsA = parseInt(document.getElementById("rowsA").value);
+            var colsA = parseInt(document.getElementById("colsA").value);
+            var matrixAContainer = document.getElementById("matrixA");
+            matrixAContainer.innerHTML = "<h4>Masukan Angka matriks A:</h4>";
+            
+            for (var i = 0; i < rowsA; i++) {
+                for (var j = 0; j < colsA; j++) {
+                    var elementId = "matrixA_" + i + "_" + j;
+                    var input = document.createElement("input");
+                    input.type = "number";
+                    input.id = elementId;
+                    input.name = elementId;
+                    input.min = "0";
+                    matrixAContainer.appendChild(input);
+                }
+                matrixAContainer.appendChild(document.createElement("br"));
+            }
+        }
+        
+        // Menambahkan input elemen matriks B sesuai dengan jumlah baris dan kolom yang dipilih
+        document.getElementById("rowsB").addEventListener("change", addMatrixBInputs);
+        document.getElementById("colsB").addEventListener("change", addMatrixBInputs);
+        
+        function addMatrixBInputs() {
+            var rowsB = parseInt(document.getElementById("rowsB").value);
+            var colsB = parseInt(document.getElementById("colsB").value);
+            var matrixBContainer = document.getElementById("matrixB");
+            matrixBContainer.innerHTML = "<h4>Masukan Angka matriks B:</h4>";
+            
+            for (var i = 0; i < rowsB; i++) {
+                for (var j = 0; j < colsB; j++) {
+                    var elementId = "matrixB_" + i + "_" + j;
+                    var input = document.createElement("input");
+                    input.type = "number";
+                    input.id = elementId;
+                    input.name = elementId;
+                    input.min = "0";
+                    matrixBContainer.appendChild(input);
+                }
+                matrixBContainer.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</body>
+</html>
